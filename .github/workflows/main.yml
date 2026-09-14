@@ -13,3 +13,17 @@ jobs:
         run: |
           echo "Repository: ${{ github.repository }}"
           echo "Branch: ${{ github.ref_name }}"
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checka ut koden
+        uses: actions/checkout@v4
+
+      - name: Sätt upp .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Bygg projekt
+        run: dotnet build
