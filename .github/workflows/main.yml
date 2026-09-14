@@ -1,0 +1,15 @@
+name: Print Info
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  print-info:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Skriv ut repo och branch
+        run: |
+          echo "Repository: ${{ github.repository }}"
+          echo "Branch: ${{ github.ref_name }}"
